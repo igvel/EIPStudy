@@ -25,31 +25,11 @@
          http://camel.apache.org/schema/spring 
          http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-  <import resource="classpath:META-INF/spring/camel-cxf.xml" />
-
-    <bean id="debugBean" class="camelinaction.order.DebugBean">
-
-    </bean>
-
+    <bean id="testBean" class="mycamel.TestBean" />
     <camelContext xmlns="http://camel.apache.org/schema/spring">
-  
-    <route>
-      <!-- route starts from the cxf webservice, see camel-cxf.xml for details -->
-      <from uri="cxf:bean:orderEndpoint" />
-      <to uri="seda:incomingOrders" />
-        <!-- and then create the OK reply for the webservice which is still waiting for a reply -->
-      <log message="Operation ${header.operationName}, Body ${body}"/>
-      <transform>
-        <constant>OK</constant>
-      </transform>
-    </route>
-  
-    <!-- test route -->
-    <route>
-      <from uri="seda:incomingOrders" />
-      <inOnly uri="bean:debugBean"/>
-      <to uri="mock:end"/>
-    </route>
-  </camelContext>
+        <packageScan>
+           <package>mycamel</package>
+       </packageScan>
+   </camelContext>
 
 </beans>

@@ -46,6 +46,7 @@ public class UseCaseRoute extends RouteBuilder {
 
         // poll files every 5th second and send them to the HTTP server
         from("file:target/rider?delay=5000&readLock=none")
-            .to("http://localhost:8765/rider");
+            .to("http://localhost:8765/rider")
+            .log("Response: ${body}");
     }
 }

@@ -26,6 +26,6 @@
          http://camel.apache.org/schema/cxf/camel-cxf.xsd">
 
   <cxf:cxfEndpoint id="orderEndpoint"
-                   address="http://localhost:9000/order/"
+                   address="http://localhost:9009/order/"
                    serviceClass="camelinaction.order.OrderEndpoint"/>
 </beans>
