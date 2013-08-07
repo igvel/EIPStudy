@@ -30,7 +30,7 @@
   <import resource="classpath:META-INF/cxf/cxf-extension-http-jetty.xml"/>
   
   <cxf:cxfEndpoint id="orderEndpoint"
-                   address="http://localhost:9000/order/"
+                   address="http://localhost:9009/order/"
                    serviceClass="camelinaction.order.OrderEndpoint"
                    wsdlURL="wsdl/order.wsdl"/>
 </beans>
